@@ -6,14 +6,17 @@ Este repositorio contiene la configuración de **Docker Compose** centralizada p
 
 Para que el orquestador funcione correctamente, los repositorios deben estar agrupados de la siguiente manera:
 
-\`\`\`text
-📂 workspace-root/
-├── 📂 infra-nova-services-docker/  <-- (Este repositorio)
+```text
+workspace-root/
+│
+├── infra-nova-services-docker/    # (Este repositorio)
 │   └── docker-compose.yml
-├── 📂 customer-service/
-├── 📂 order-service/
-└── 📂 order-management-service/
-\`\`\`
+│
+├── customer-service/              # Microservicio de Clientes
+├── order-service/                 # Microservicio de Órdenes
+└── order-management-service/      # Orquestador 
+└── gateway-service/               # Api Gateway
+
 
 ### ¿Por qué esta estructura?
 *   **Contexto de Construcción**: El \`docker-compose.yml\` utiliza rutas relativas (\`../\`) para acceder a los \`Dockerfiles\` de cada servicio y construir las imágenes en tiempo real.
